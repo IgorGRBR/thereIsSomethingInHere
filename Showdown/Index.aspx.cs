@@ -23,14 +23,14 @@ namespace Showdown
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection con = new MySqlConnection(constr))
             {
-                con.Open();
+                
                 try
                 {
-                    
+                    con.Open();
                 }
-                catch
+                catch (System.Exception ex)
                 {
-
+                    ErrorLog.InnerText = "SQL DB Access error.";
                 }
             }
 
