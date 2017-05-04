@@ -1,0 +1,23 @@
+﻿body {
+
+}
+
+.user_board{
+    color: white; width: 100%; height: 86px; background-color: black; text-align: center; font-size: 4ex;
+}
+
+.center_box{
+    width: 60%; height: 70%; background-color: black; margin: 8% auto; opacity: 10;
+}
+
+.center_box_text{
+    text-align: center; padding: 2ex; font-size: 4ex; margin: 0; color: gray; opacity: 75;
+}
+
+.blogpost_string_elem{
+    width: 75%; background-color: black; margin: 8%; opacity: 10;
+}
+
+.blogpost_string_elem_text{
+    text-align: center; padding: 1ex; font-size: 4ex; margin: 0; color: gray; opacity: 75;
+}
