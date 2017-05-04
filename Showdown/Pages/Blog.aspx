@@ -17,7 +17,7 @@
             <asp:LinkButton runat="server" href="../Index.aspx">Index.</asp:LinkButton>  
             <asp:LinkButton ID="LogoutButton" runat="server" OnClick="LogoutButton_Click">Log out.</asp:LinkButton> </h4>
         </div>
-    <div id="BlogString" runat="server" style=" width: 88%; height: 55%; overflow-y: auto; background-color: black; margin: 0% auto; text-align: center; padding: 8ex; font-size: 3ex; color: gray;">
+    <div id="BlogString" runat="server" style=" width: 88%; height: 55%; overflow-y: scroll; background-color: black; margin: 0% auto; text-align: center; padding: 8ex; font-size: 3ex; color: gray;">
         <div id="BlogElem" runat="server" style="wdith: 85%; background-color:dimgray; margin: 4% auto; padding:2% 2%;">
             <h1 id="BlogTitle" runat="server" style="text-align: center;">Title</h1>
             <h4 id="BlogText" runat="server" style="text-align: left;">Blog text.</h4>

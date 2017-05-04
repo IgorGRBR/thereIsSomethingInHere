@@ -33,7 +33,6 @@ namespace Showdown
                     ErrorLog.InnerText = "SQL DB Access error.";
                 }
             }
-
                 if (c != null && c.Value != "")
             {
                 uid = int.Parse(c.Value);

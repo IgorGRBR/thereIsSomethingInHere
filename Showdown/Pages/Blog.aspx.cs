@@ -68,7 +68,52 @@ namespace Showdown.Pages
                                 }
                             }
                         }
+                        cmd.CommandText = "SELECT *FROM post WHERE UserID IN ( SELECT UserID FROM test WHERE UserID = "+ uid+")";
+
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                try
+                                {
+                                    sda.Fill(dt);
+                                    //Query_Result.Text = dt.Rows[0][0].ToString();
+                                    for (int i=0; i<dt.Rows.Count; i++)
+                                    {
+                                        LiteralControl BlogElem = new LiteralControl();
+                                        {
+                                            BlogElem.ID = "divcreated";
+                                        }
+                                        BlogElem.Text = "<div style=\"wdith: 85 %; background - color:dimgray; margin: 4 % auto; padding: 2 % 2 %;\">" +
+                                            "<h1 style = \"text-align: center;\" > "+ dt.Rows[i][1].ToString()+" </ h1 >"+
+                                             "<h4 style = \"text-align: left;\" >"+ dt.Rows[i][2].ToString()+"</ h4 >"+
+                                             "<div>";
+                                        BlogString.Controls.Add(BlogElem);
+                                        /*
+                                        BlogElem.Style.Value = "wdith: 85 %; background - color:dimgray; margin: 4 % auto; padding: 2 % 2 %;";
+                                        global::System.Web.UI.HtmlControls.HtmlGenericControl BlogTitle = new global::System.Web.UI.HtmlControls.HtmlGenericControl();
+                                        
+                                        BlogTitle.InnerText = dt.Rows[i][1].ToString();
+                                        BlogTitle.Style.Value = "text-align: center;";
+                                        global::System.Web.UI.HtmlControls.HtmlGenericControl BlogText = new global::System.Web.UI.HtmlControls.HtmlGenericControl();
+                                        BlogText.InnerText = dt.Rows[i][2].ToString();
+                                        BlogText.Style.Value = "text-align: left;";
+                                        BlogElem.Controls.Add(BlogTitle);
+                                        BlogElem.Controls.Add(BlogText);
+                                        */
+                                    }
+                                }
+                                catch (MySql.Data.MySqlClient.MySqlException exc)
+                                {
+
+                                }
+                            }
+                        }
+
                     }
+
                 }
 
 
