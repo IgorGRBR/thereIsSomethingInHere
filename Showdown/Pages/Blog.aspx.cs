@@ -86,23 +86,11 @@ namespace Showdown.Pages
                                         {
                                             BlogElem.ID = "divcreated";
                                         }
-                                        BlogElem.Text = "<div style=\"wdith: 85 %; background - color:dimgray; margin: 4 % auto; padding: 2 % 2 %;\">" +
-                                            "<h1 style = \"text-align: center;\" > "+ dt.Rows[i][1].ToString()+" </ h1 >"+
-                                             "<h4 style = \"text-align: left;\" >"+ dt.Rows[i][2].ToString()+"</ h4 >"+
-                                             "<div>";
+                                        BlogElem.Text = "<div style=\"wdith: 85%; background-color:dimgray; margin: 4% auto; padding: 2% 2%;\">" +
+                                            "<h1 style = \"text-align: center; color: black;\" > "+ dt.Rows[i][1].ToString()+" </ h1 >"+
+                                             "<h4 style = \"text-align: left; color: black;\" >" + dt.Rows[i][2].ToString()+"</ h4 >"+
+                                             "</div>";
                                         BlogString.Controls.Add(BlogElem);
-                                        /*
-                                        BlogElem.Style.Value = "wdith: 85 %; background - color:dimgray; margin: 4 % auto; padding: 2 % 2 %;";
-                                        global::System.Web.UI.HtmlControls.HtmlGenericControl BlogTitle = new global::System.Web.UI.HtmlControls.HtmlGenericControl();
-                                        
-                                        BlogTitle.InnerText = dt.Rows[i][1].ToString();
-                                        BlogTitle.Style.Value = "text-align: center;";
-                                        global::System.Web.UI.HtmlControls.HtmlGenericControl BlogText = new global::System.Web.UI.HtmlControls.HtmlGenericControl();
-                                        BlogText.InnerText = dt.Rows[i][2].ToString();
-                                        BlogText.Style.Value = "text-align: left;";
-                                        BlogElem.Controls.Add(BlogTitle);
-                                        BlogElem.Controls.Add(BlogText);
-                                        */
                                     }
                                 }
                                 catch (MySql.Data.MySqlClient.MySqlException exc)
@@ -126,7 +114,12 @@ namespace Showdown.Pages
             c.Value = "";
             Query_Result.Text = "";
             //Page_Load(sender, e);
-            Response.Redirect("index.aspx");
+            Response.Redirect("../index.aspx");
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
         }
     }
 }

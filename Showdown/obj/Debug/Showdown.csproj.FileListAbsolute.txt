@@ -31,4 +31,4 @@ C:\Users\Igor\documents\visual studio 2015\Projects\Showdown\Showdown\bin\Micros
 C:\Users\Igor\documents\visual studio 2015\Projects\Showdown\Showdown\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Igor\documents\visual studio 2015\Projects\Showdown\Showdown\obj\Debug\Showdown.dll
 C:\Users\Igor\documents\visual studio 2015\Projects\Showdown\Showdown\obj\Debug\Showdown.pdb
-C:\Users\Igor\documents\visual studio 2015\Projects\Showdown\Showdown\obj\Debug\Showdown.csprojResolveAssemblyReference.cache
+C:\Users\Igor\Documents\Visual Studio 2015\Projects\Showdown\Showdown\obj\Debug\Showdown.csprojResolveAssemblyReference.cache

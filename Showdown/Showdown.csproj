@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="Pages\Account.aspx" />
     <Content Include="Pages\Blog.aspx" />
+    <Content Include="Artwork\btn.png" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Post.aspx" />
     <Content Include="Pages\Register.aspx" />
