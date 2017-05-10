@@ -6,3 +6,5 @@ applications:
   name: Showdown
   host: Showdown
   disk_quota: 1024M
+  services:
+  - ClearDB MySQL Database-q3

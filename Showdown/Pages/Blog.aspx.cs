@@ -10,10 +10,13 @@ using System.Web.UI.WebControls;
 
 namespace Showdown.Pages
 {
+
+
     public partial class Blog : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             int uid = -1;
 
             HttpCookie c = HttpContext.Current.Request.Cookies.Get("User");
@@ -21,14 +24,14 @@ namespace Showdown.Pages
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (MySqlConnection con = new MySqlConnection(constr))
             {
-                con.Open();
+                
                 try
                 {
-
+                    con.Open();
                 }
-                catch
+                catch(System.Exception exc)
                 {
-
+                    
                 }
             }
 
@@ -86,11 +89,19 @@ namespace Showdown.Pages
                                         {
                                             BlogElem.ID = "divcreated";
                                         }
-                                        BlogElem.Text = "<div style=\"wdith: 85%; background-color:dimgray; margin: 4% auto; padding: 2% 2%;\">" +
-                                            "<h1 style = \"text-align: center; color: black;\" > "+ dt.Rows[i][1].ToString()+" </ h1 >"+
-                                             "<h4 style = \"text-align: left; color: black;\" >" + dt.Rows[i][2].ToString()+"</ h4 >"+
+                                        string html_text = "<div style=\"wdith: 85%; background-color:dimgray; margin: 4% auto; padding: 2% 2%;\">" +
+                                            "<h1 style = \"text-align: center; color: black;\" > " + dt.Rows[i][1].ToString() + " </ h1 >" +
+                                             "<h4 style = \"text-align: left; color: black;\" >" + dt.Rows[i][2].ToString() + "</ h4 >" +
                                              "</div>";
+                                        BlogElem.Text = html_text;
+                                        Button del_button = new Button();
+                                        del_button.ID = "del" + dt.Rows[i][0].ToString();
+                                        del_button.Text = "Delete this post";
+                                        del_button.Command += Del_button_Command;
+                                        del_button.CommandArgument = dt.Rows[i][0].ToString();
+                                        //del_button.Click += del_button.CommandName.;
                                         BlogString.Controls.Add(BlogElem);
+                                        BlogString.Controls.Add(del_button);
                                     }
                                 }
                                 catch (MySql.Data.MySqlClient.MySqlException exc)
@@ -104,10 +115,16 @@ namespace Showdown.Pages
 
                 }
 
-
-
             }
         }
+
+        private void Del_button_Command(object sender, CommandEventArgs e)
+        {
+            Label myLabel = new Label();
+            myLabel.Text = "Label" + e.CommandArgument;
+            BlogString.Controls.Add(myLabel);
+        }
+
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
             HttpCookie c = HttpContext.Current.Response.Cookies.Get("User");
@@ -115,6 +132,12 @@ namespace Showdown.Pages
             Query_Result.Text = "";
             //Page_Load(sender, e);
             Response.Redirect("../index.aspx");
+        }
+
+        protected void DeleteButton_Click(string id)
+        {
+            
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert(' You'd delete post#"+id+" if the developer wasnt lazy enough. ');");
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)

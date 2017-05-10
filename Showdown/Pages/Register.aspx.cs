@@ -75,7 +75,6 @@ namespace Showdown.Pages
             }
 
             Response.Redirect("../Index.aspx", true);
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert(' You are now registered. ');");
         }
     }
 }
